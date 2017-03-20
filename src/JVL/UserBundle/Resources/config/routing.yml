@@ -1,0 +1,24 @@
+jvl_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: JVLUserBundle:Default:index }
+
+jvl_user_index:
+    path: /user/index
+    defaults: { _controller: JVLUserBundle:User:index}
+    
+jvl_user_add:
+    path: /user/add
+    defaults : { _controller: JVLUserBundle:User:add }
+
+jvl_user_edit:
+    path: /user/edit/{id}
+    defaults: { _controller: JVLUserBundle:User:edit }
+
+jvl_user_view:
+    path: /user/views/{id}
+    defaults: { _controller: JVLUserBundle:User:view }
+
+jvl_user_delete:
+    path:   /user/delete/{id}
+    defaults: { _controller: JVLUserBundle:User:delete}
+    
