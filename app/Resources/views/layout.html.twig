@@ -10,13 +10,16 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {%block userTable%}{%endblock userTable%}
+        
         {% block body %}
                 {{ include("navbar.html.twig")}}
+              
         {% endblock %}
-        {% block javascripts %}
-        <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('public/js/jquery-3.2.0.min.js')}}"></script>
-        {% endblock %}
+        
+              {% block javascripts %}
+            <script src="{{asset('public/js/jquery-1.11.3.min.js')}}"></script>
+            <script src="{{asset('public/js/bootstrap.min.js')}}" ></script>
+            {% endblock  %}
+          
     </body>
 </html>

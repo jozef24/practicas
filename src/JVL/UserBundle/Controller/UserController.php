@@ -4,8 +4,13 @@ namespace JVL\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-
+//importamos nuestra entidad User para tener todas las propiedades de esta
+use JVL\UserBundle\Entity\User;
+//importamos nuestro form creado para poder llamarlo
+user JVL\UserBundle\Form\UserType;
 class UserController extends Controller
+
+
 {
     public function indexAction()
     {
@@ -13,13 +18,6 @@ class UserController extends Controller
         
         $users = $em->getRepository('JVLUserBundle:User')->findAll();
         
-        /*$res = 'lusta de ususarios<br/>';
-        foreach($users as $user){
-            
-            $res .= 'Usuario: '.$user->getUsername(). ' email'.$user->getEmail().'<br/>';
-        }
-        
-        return new Response($res);*/
         return $this->render('JVLUserBundle:User:index.html.twig',array('users'=>$users));
     }
     
@@ -27,6 +25,16 @@ class UserController extends Controller
         $repository = $this->getDoctrine()->getRepository('JVLUserBundle:User');
         $user = $repository->find($id);
         return new Response($user->getUsername());
+    }
+    
+    public function addAction(){
+        
+        $user = new  User();
+        
+        $form = $this->createCreateForm($user);
+        
+        return $this->render('JVLUserBundle:User:add.html.twig',array('form'=>$form->createView()));
+        
     }
     
   
